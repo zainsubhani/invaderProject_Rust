@@ -1,1 +1,1 @@
-/Users/Apple/Rust/invader/target/debug/invader: /Users/Apple/Rust/invader/src/main.rs
+/Users/Apple/Rust/invader/target/debug/invader: /Users/Apple/Rust/invader/src/frame.rs /Users/Apple/Rust/invader/src/lib.rs /Users/Apple/Rust/invader/src/main.rs /Users/Apple/Rust/invader/src/render.rs
