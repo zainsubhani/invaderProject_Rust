@@ -13,8 +13,8 @@ use crossterm::{
     terminal::{self, EnterAlternateScreen, LeaveAlternateScreen},
 };
 use invader::{
-    frame::{self, new_frame},
-    player::player,
+    frame::{self, Drawable, new_frame},
+    player::Player,
     render::{self},
 };
 use rusty_audio::Audio;
@@ -52,10 +52,10 @@ fn main() -> Result<(), Box<dyn Error>> {
     });
 
     // Game loop
-    let mut player = player::new();
+    let mut player = Player::new();
     'gameloop: loop {
         // per frame init
-        let curr_frame = new_frame();
+        let mut curr_frame = new_frame();
 
         // input
         while event::poll(Duration::default())? {
@@ -72,6 +72,7 @@ fn main() -> Result<(), Box<dyn Error>> {
             }
         }
         // Draw and Render Section
+        player.draw(&mut curr_frame);
 
         let _ = render_tx.send(curr_frame);
         thread::sleep(Duration::from_millis(1));

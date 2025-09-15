@@ -1,10 +1,10 @@
 use crate::{NUM_COLS, NUM_ROWS, frame::Drawable};
 
-pub struct player {
+pub struct Player {
     x: usize,
     y: usize,
 }
-impl player {
+impl Player {
     pub fn new() -> Self {
         Self {
             x: NUM_COLS / 2,
@@ -22,7 +22,7 @@ impl player {
         }
     }
 }
-impl Drawable for player {
+impl Drawable for Player {
     fn draw(&self, frame: &mut crate::frame::Frame) {
         frame[self.x][self.y] = "A";
     }
